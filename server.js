@@ -1,6 +1,7 @@
 // server.js - Backend proxy for OpenWeather API
 // Keeps API key secure on the server side
 
+const path = require('path');
 const express = require('express');
 const cors = require('cors');
 const axios = require('axios');
@@ -15,7 +16,7 @@ const API_KEY = process.env.OPENWEATHER_API_KEY;
 // Enable CORS for frontend
 app.use(cors());
 app.use(express.json());
-app.use(express.static('public')); // Serve frontend files
+app.use(express.static(path.join(__dirname, 'public'))); // Serve frontend files
 
 // Geocoding endpoint - search cities by name
 app.get('/api/geocode', async (req, res) => {
@@ -131,3 +132,5 @@ app.listen(PORT, () => {
   console.log(`AQI Backend running on http://localhost:${PORT}`);
   console.log('Make sure to create a .env file with OPENWEATHER_API_KEY=your_key_here');
 });
+
+module.exports = app;
