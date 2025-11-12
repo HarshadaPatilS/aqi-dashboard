@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insights & Trends - AQI Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <span class="nav-icon">🌍</span>
+                <span class="nav-title">AQI Dashboard</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="compare.html">Compare</a></li>
+                <li><a href="map.html">Map</a></li>
+                <li><a href="insights.html" class="active">Insights</a></li>
+                <li><a href="settings.html">Settings</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Insights Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Air Quality Insights & Trends</h1>
+            <p>Analyze historical air quality patterns</p>
+        </div>
+    </section>
+
+    <!-- City Selection -->
+    <section class="insights-controls">
+        <div class="container">
+            <div class="controls-grid">
+                <div class="control-group">
+                    <label>Select City</label>
+                    <div class="search-box">
+                        <input 
+                            type="text" 
+                            id="citySearch" 
+                            class="search-input" 
+                            placeholder="Search for a city..."
+                            autocomplete="off"
+                        >
+                    </div>
+                    <div id="autocompleteResults" class="autocomplete-results"></div>
+                </div>
+
+                <div class="control-group">
+                    <label>Time Range</label>
+                    <select id="timeRange" class="select-input">
+                        <option value="24h">Last 24 Hours</option>
+                        <option value="7d" selected>Last 7 Days</option>
+                        <option value="30d">Last 30 Days</option>
+                    </select>
+                </div>
+
+                <div class="control-group">
+                    <label>Pollutant</label>
+                    <select id="pollutantSelect" class="select-input">
+                        <option value="all">All Pollutants</option>
+                        <option value="pm2_5">PM2.5</option>
+                        <option value="pm10">PM10</option>
+                        <option value="o3">Ozone (O₃)</option>
+                        <option value="no2">NO₂</option>
+                        <option value="co">CO</option>
+                        <option value="so2">SO₂</option>
+                    </select>
+                </div>
+            </div>
+
+            <div id="selectedCity" class="selected-city" style="display: none;">
+                <span id="selectedCityName"></span>
+                <button onclick="clearCity()" class="clear-btn">Clear</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trends Charts -->
+    <section class="trends-section">
+        <div class="container">
+            <div id="trendsContent" class="trends-content">
+                <div class="empty-state-large">
+                    <span class="empty-icon">📊</span>
+                    <h3>Select a City</h3>
+                    <p>Choose a city above to view historical air quality trends</p>
+                </div>
+            </div>
+
+            <div id="chartsContainer" style="display: none;">
+                <!-- AQI Trend Line Chart -->
+                <div class="card chart-card">
+                    <h2 class="card-title">AQI Trend</h2>
+                    <div class="chart-container">
+                        <canvas id="aqiTrendChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Pollutants Multi-Line Chart -->
+                <div class="card chart-card">
+                    <h2 class="card-title">Pollutant Trends</h2>
+                    <div class="chart-container">
+                        <canvas id="pollutantsTrendChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Statistics Cards -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-label">Average AQI</div>
+                        <div class="stat-value" id="avgAQI">--</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-label">Best Day</div>
+                        <div class="stat-value" id="bestDay">--</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-label">Worst Day</div>
+                        <div class="stat-value" id="worstDay">--</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-label">Days Good Quality</div>
+                        <div class="stat-value" id="goodDays">--</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="app.js"></script>
+    <script src="insights.js"></script>
+</body>
+</html>

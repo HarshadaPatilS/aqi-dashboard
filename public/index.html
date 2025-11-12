@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AQI Dashboard - Home</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <span class="nav-icon">🌍</span>
+                <span class="nav-title">AQI Dashboard</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="compare.html">Compare</a></li>
+                <li><a href="map.html">Map</a></li>
+                <li><a href="insights.html">Insights</a></li>
+                <li><a href="settings.html">Settings</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1 class="hero-title">Monitor Air Quality Worldwide</h1>
+            <p class="hero-subtitle">Real-time air quality index and pollutant data from around the globe</p>
+            
+            <!-- Search Bar with Autocomplete -->
+            <div class="search-container">
+                <div class="search-box">
+                    <input 
+                        type="text" 
+                        id="citySearch" 
+                        class="search-input" 
+                        placeholder="Search for a city..."
+                        autocomplete="off"
+                    >
+                    <button id="searchBtn" class="search-btn">
+                        <span>🔍</span>
+                    </button>
+                </div>
+                <div id="autocompleteResults" class="autocomplete-results"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Global AQI Summary -->
+    <section class="summary-section">
+        <div class="container">
+            <h2 class="section-title">Global AQI Overview</h2>
+            <div class="summary-grid" id="summaryGrid">
+                <!-- Loading placeholder -->
+                <div class="summary-card">
+                    <div class="loading-spinner"></div>
+                    <p>Loading global data...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recent Searches / Favorites -->
+    <section class="recent-section">
+        <div class="container">
+            <h2 class="section-title">Your Favorite Cities</h2>
+            <div class="recent-grid" id="recentGrid">
+                <div class="empty-state">
+                    <span class="empty-icon">⭐</span>
+                    <p>No favorite cities yet. Search for a city to get started!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Links -->
+    <section class="quick-links">
+        <div class="container">
+            <div class="links-grid">
+                <a href="compare.html" class="link-card">
+                    <span class="link-icon">📊</span>
+                    <h3>Compare Cities</h3>
+                    <p>Compare air quality across multiple locations</p>
+                </a>
+                <a href="map.html" class="link-card">
+                    <span class="link-icon">🗺️</span>
+                    <h3>Map View</h3>
+                    <p>Explore air quality on an interactive map</p>
+                </a>
+                <a href="insights.html" class="link-card">
+                    <span class="link-icon">📈</span>
+                    <h3>Trends & Insights</h3>
+                    <p>Analyze historical air quality patterns</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <script src="app.js"></script>
+    <script src="home.js"></script>
+</body>
+</html>

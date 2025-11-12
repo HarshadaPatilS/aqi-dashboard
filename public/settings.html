@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings - AQI Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <span class="nav-icon">🌍</span>
+                <span class="nav-title">AQI Dashboard</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="compare.html">Compare</a></li>
+                <li><a href="map.html">Map</a></li>
+                <li><a href="insights.html">Insights</a></li>
+                <li><a href="settings.html" class="active">Settings</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Settings Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Settings & Preferences</h1>
+            <p>Customize your dashboard experience</p>
+        </div>
+    </section>
+
+    <!-- Settings Content -->
+    <section class="settings-section">
+        <div class="container">
+            <div class="settings-container">
+                <!-- Appearance Settings -->
+                <div class="settings-card">
+                    <h2 class="settings-title">
+                        <span class="settings-icon">🎨</span>
+                        Appearance
+                    </h2>
+                    <div class="settings-item">
+                        <div class="setting-info">
+                            <h3>Theme</h3>
+                            <p>Choose between light and dark mode</p>
+                        </div>
+                        <div class="toggle-group">
+                            <button class="toggle-btn active" data-theme="light">Light</button>
+                            <button class="toggle-btn" data-theme="dark">Dark</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Units Settings -->
+                <div class="settings-card">
+                    <h2 class="settings-title">
+                        <span class="settings-icon">📏</span>
+                        Units
+                    </h2>
+                    <div class="settings-item">
+                        <div class="setting-info">
+                            <h3>Pollutant Display</h3>
+                            <p>Choose how pollutant values are displayed</p>
+                        </div>
+                        <div class="toggle-group">
+                            <button class="toggle-btn active" data-unit="ugm3">µg/m³</button>
+                            <button class="toggle-btn" data-unit="aqi">AQI Index</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Favorite Cities -->
+                <div class="settings-card">
+                    <h2 class="settings-title">
+                        <span class="settings-icon">⭐</span>
+                        Favorite Cities
+                    </h2>
+                    <div id="favoriteCities" class="favorites-list">
+                        <div class="empty-state">
+                            <p>No favorite cities saved</p>
+                        </div>
+                    </div>
+                    <button id="clearFavorites" class="btn-danger" style="display: none;">
+                        Clear All Favorites
+                    </button>
+                </div>
+
+                <!-- Notifications (Future Feature) -->
+                <div class="settings-card">
+                    <h2 class="settings-title">
+                        <span class="settings-icon">🔔</span>
+                        Notifications
+                    </h2>
+                    <div class="settings-item">
+                        <div class="setting-info">
+                            <h3>Air Quality Alerts</h3>
+                            <p>Get notified when AQI reaches unhealthy levels</p>
+                        </div>
+                        <label class="switch">
+                            <input type="checkbox" id="notificationsToggle">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                    <p class="setting-note">⚠️ Feature coming soon</p>
+                </div>
+
+                <!-- Data Management -->
+                <div class="settings-card">
+                    <h2 class="settings-title">
+                        <span class="settings-icon">💾</span>
+                        Data Management
+                    </h2>
+                    <div class="settings-actions">
+                        <button id="exportData" class="btn-secondary">
+                            Export Favorites
+                        </button>
+                        <button id="clearCache" class="btn-secondary">
+                            Clear Cache
+                        </button>
+                    </div>
+                </div>
+
+                <!-- About -->
+                <div class="settings-card">
+                    <h2 class="settings-title">
+                        <span class="settings-icon">ℹ️</span>
+                        About
+                    </h2>
+                    <div class="about-content">
+                        <p><strong>AQI Dashboard v1.0</strong></p>
+                        <p>Real-time air quality monitoring powered by OpenWeather API</p>
+                        <p class="about-note">Data updated every hour</p>
+                        <div class="about-links">
+                            <a href="https://openweathermap.org/api/air-pollution" target="_blank">API Documentation</a>
+                            <a href="#" onclick="alert('Privacy Policy: We only store your favorite cities locally.')">Privacy Policy</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="app.js"></script>
+    <script src="settings.js"></script>
+</body>
+</html>

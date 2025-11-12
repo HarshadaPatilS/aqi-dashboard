@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>City Dashboard - AQI</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <span class="nav-icon">🌍</span>
+                <span class="nav-title">AQI Dashboard</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="compare.html">Compare</a></li>
+                <li><a href="map.html">Map</a></li>
+                <li><a href="insights.html">Insights</a></li>
+                <li><a href="settings.html">Settings</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- City Header -->
+    <section class="city-header">
+        <div class="container">
+            <button onclick="history.back()" class="back-btn">← Back</button>
+            <div class="city-info">
+                <h1 id="cityName" class="city-name">Loading...</h1>
+                <p id="cityCoords" class="city-coords"></p>
+            </div>
+            <button id="favoriteBtn" class="favorite-btn">⭐ Add to Favorites</button>
+        </div>
+    </section>
+
+    <!-- Main Dashboard -->
+    <section class="dashboard-section">
+        <div class="container">
+            <!-- AQI Overview Card -->
+            <div class="dashboard-grid">
+                <div class="card aqi-card">
+                    <h2 class="card-title">Current Air Quality</h2>
+                    <div class="aqi-gauge-container">
+                        <canvas id="aqiGauge"></canvas>
+                    </div>
+                    <div id="aqiInfo" class="aqi-info">
+                        <div class="aqi-value" id="aqiValue">--</div>
+                        <div class="aqi-label" id="aqiLabel">Loading...</div>
+                        <div class="aqi-timestamp" id="aqiTimestamp"></div>
+                    </div>
+                </div>
+
+                <!-- Health Recommendations -->
+                <div class="card health-card">
+                    <h2 class="card-title">Health Recommendations</h2>
+                    <div id="healthContent" class="health-content">
+                        <div class="loading-spinner"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pollutants Bar Chart -->
+            <div class="card chart-card">
+                <h2 class="card-title">Pollutant Levels</h2>
+                <div class="chart-container">
+                    <canvas id="pollutantsChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Forecast Line Chart -->
+            <div class="card chart-card">
+                <h2 class="card-title">24-Hour Forecast</h2>
+                <div class="chart-container">
+                    <canvas id="forecastChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="app.js"></script>
+    <script src="city.js"></script>
+</body>
+</html>
